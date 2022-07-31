@@ -1,0 +1,18 @@
+<h2>Add new customer</h2>
+
+<%= form_with model: @customer do |form| %>
+  <p><%= form.label :name, 'Full name' %></p>
+  <p><%= form.text_area :name, rows: 1 %></p>
+  <p><%= form.label :body, 'Customer info' %></p>
+  <p><%= form.text_area :body, rows: 3 %></p>
+  <p><%= form.label :phone_number, 'Phone number' %></p>
+  <p><%= form.text_field :phone_number, rows: 1, placeholder: "+123(00)456-78-90" %></p>
+  <small>Format: +123(00)456-78-90</small><br><br>
+  <p><%= form.label :status, 'Blacklist Status'%>
+  <select name="customer[status]">
+    <option value="0"> Normal Status  </option>
+    <option value="1"> Blacklist </option>
+  </select>
+  <p><%= form.submit 'Create' %>
+  <p><%= link_to "Back to customers", customers_path%>
+<% end %>
